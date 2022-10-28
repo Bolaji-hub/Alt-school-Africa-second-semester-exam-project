@@ -2,8 +2,25 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
+const useCounter = (initialValue = 0) => {
+  const [count, setCount] = useState(initialValue)
+  const reset = () => setCount(initialValue)
+  const increment = () => setCount(count => count + 1)
+  const decrement = () => setCount(count => count - 1)
+  const setValue = (value) => setCount(value)
+
+  return {
+    count,
+    reset,
+    increment,
+    decrement,
+    setValue
+  }
+
+}
+
 function App() {
-  const [count, setCount] = useState(0)
+  const { count, increment, decrement } = useCounter()
 
   return (
     <div className="App">
@@ -17,7 +34,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={decrement}>
           count is {count}
         </button>
         <p>
