@@ -20,30 +20,30 @@ const useCounter = (initialValue = 0) => {
 }
 
 function App() {
-  const { count, increment, decrement } = useCounter()
+  const { count, increment, decrement, reset, setValue } = useCounter()
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={decrement}>
-          count is {count}
+      <h1>{count}</h1>
+      <form onSubmit={event => {
+        event.preventDefault()
+        setValue(parseInt(event.target.elements[0].value))
+        }}>
+        <input type="number" />
+        <button>Set Value</button>
+      </form>
+      <div className="buttons">
+        <button onClick={increment}>
+          Increment
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <button onClick={decrement}>
+          Decrement
+        </button>
+        <button onClick={reset}>
+          Reset
+        </button>
+        
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
