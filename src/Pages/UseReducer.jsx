@@ -1,5 +1,6 @@
 import { useState, useReducer } from "react";
-import Counter from "./componenets/Counter";
+import Counter from "../componenets/Counter";
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -20,7 +21,7 @@ export default function () {
   const [state, dispatch] = useReducer(reducer, { count: 0 });
 
   return (
-    <Counter
+    <Counter className="use-reducer"
       count={state.count}
       increment={() => dispatch({ type: "increment" })}
       decrement={() => dispatch({ type: "decrement" })}

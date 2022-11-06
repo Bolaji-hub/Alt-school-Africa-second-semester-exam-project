@@ -1,8 +1,9 @@
 export default function Counter(props) {
   const { count, increment, decrement, reset, setValue } = props
+  
 
   return (
-    <div className="App">
+    <div className={props.className}>
       <h1>{count}</h1>
       <form onSubmit={event => {
         event.preventDefault()

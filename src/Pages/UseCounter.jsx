@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './App.css'
-import Counter from './componenets/Counter';
+import Counter from '../componenets/Counter';
+
 
 const useCounter = (initialValue = 0) => {
   const [count, setCount] = useState(initialValue)
