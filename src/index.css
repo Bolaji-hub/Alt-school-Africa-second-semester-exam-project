@@ -21,7 +21,6 @@ nav {
   justify-content: space-between;
   min-width: 30vw;
   margin: 5px;
-
 }
 
 a {
@@ -41,13 +40,12 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-input{
+input {
   width: 70%;
   border: none;
   border-radius: 5px;
   padding: 12px 20px;
   margin: 8px 0;
-  
 }
 
 h1 {
@@ -63,7 +61,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: grey; 
+  background-color: grey;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -75,10 +73,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-  a:hover {
-    color: #747bff;
-  }
-  @media (min-width: 320px) and (max-width: 342px)
-
-  
-
+a:hover {
+  color: #747bff;
+}
