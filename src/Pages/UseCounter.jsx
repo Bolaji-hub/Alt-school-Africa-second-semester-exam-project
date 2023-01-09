@@ -21,6 +21,11 @@ const useCounter = (initialValue = 0) => {
 
 export default function UseCounter() {
   const counterProps = useCounter()
+  const [isShown, setIsShown] = useState(true)
   
-  return (<Counter {...counterProps} />)
+  return (
+  <>
+  {isShown && <Counter {...counterProps} />}
+  <button onClick={() => setIsShown((shown) => !shown)}>{isShown ? 'Hide' : 'Show'}</button>
+  </>)
 }
