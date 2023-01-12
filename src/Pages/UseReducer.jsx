@@ -1,5 +1,6 @@
 import { useState, useReducer } from "react";
 import Counter from "../componenets/Counter";
+import CounterVisibility from "../componenets/CounterVisibility";
 
 
 const reducer = (state, action) => {
@@ -21,12 +22,14 @@ export default function () {
   const [state, dispatch] = useReducer(reducer, { count: 0 });
 
   return (
-    <Counter className="use-reducer"
-      count={state.count}
-      increment={() => dispatch({ type: "increment" })}
-      decrement={() => dispatch({ type: "decrement" })}
-      reset={() => dispatch({ type: "reset" })}
-      setValue={(value) => dispatch({ type: "setValue", payload: value })}
-    />
+    <CounterVisibility>
+      <Counter className="use-reducer"
+        count={state.count}
+        increment={() => dispatch({ type: "increment" })}
+        decrement={() => dispatch({ type: "decrement" })}
+        reset={() => dispatch({ type: "reset" })}
+        setValue={(value) => dispatch({ type: "setValue", payload: value })}
+      />
+    </CounterVisibility>
   );
 }

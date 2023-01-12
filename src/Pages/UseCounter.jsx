@@ -1,31 +1,28 @@
-import { useState } from 'react'
-import Counter from '../componenets/Counter';
-
+import { useState } from "react";
+import Counter from "../componenets/Counter";
+import CounterVisibility from "../componenets/CounterVisibility";
 
 const useCounter = (initialValue = 0) => {
-  const [count, setCount] = useState(initialValue)
-  const reset = () => setCount(initialValue)
-  const increment = () => setCount(count => count + 1)
-  const decrement = () => setCount(count => count - 1)
-  const setValue = (value) => setCount(value)
+  const [count, setCount] = useState(initialValue);
+  const reset = () => setCount(initialValue);
+  const increment = () => setCount((count) => count + 1);
+  const decrement = () => setCount((count) => count - 1);
+  const setValue = (value) => setCount(value);
 
   return {
     count,
     reset,
     increment,
     decrement,
-    setValue
-  }
-
-}
+    setValue,
+  };
+};
 
 export default function UseCounter() {
-  const counterProps = useCounter()
-  const [isShown, setIsShown] = useState(true)
-  
+  const counterProps = useCounter();
   return (
-  <>
-  {isShown && <Counter {...counterProps} />}
-  <button onClick={() => setIsShown((shown) => !shown)}>{isShown ? 'Hide' : 'Show'}</button>
-  </>)
+    <CounterVisibility>
+      <Counter {...counterProps} />
+    </CounterVisibility>
+  );
 }
